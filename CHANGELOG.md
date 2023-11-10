@@ -26,3 +26,8 @@ npm install -D prettier eslint-config-prettier eslint-plugin-prettier
 ```shell
 npx eslint --init
 ```
+
+### 3、Vite配置
+
+- 配置路径别名
+- 配置开发服务器
