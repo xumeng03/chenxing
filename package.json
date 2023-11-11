@@ -1,8 +1,22 @@
 {
   "name": "chenxing",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.1.0",
+  "author": {
+    "name": "xumeng03",
+    "email": "xumeng03@qq.com"
+  },
+  "description": "一个适用于vue3的组件库",
+  "license": "MIT",
   "type": "module",
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
@@ -27,6 +41,7 @@
     "sass": "^1.69.5",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.6.3",
     "vite-plugin-eslint": "^1.8.1",
     "vue-tsc": "^1.8.5"
   }
