@@ -15,6 +15,7 @@ npm create vite@latest
 ```shell
 npm install @types/node
 npm install -D sass
+npm install -D @vitejs/plugin-vue-jsx
 npm install -D eslint vite-plugin-eslint
 npm install -D prettier eslint-config-prettier eslint-plugin-prettier
 ```
@@ -31,3 +32,8 @@ npx eslint --init
 
 - 配置路径别名
 - 配置开发服务器
+
+### 4、Button 组件
+
+- 添加 TSX 支持
+- 基础 button 组件
