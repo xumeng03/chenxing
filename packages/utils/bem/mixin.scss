@@ -1,0 +1,40 @@
+$NS: "x";
+$B: "-";
+$E: "__";
+$M: "--";
+
+@mixin b($b, $prefix: "") {
+  #{$prefix}.#{$NS + $B + $b} {
+    @content;
+  }
+}
+
+@mixin e($e, $prefix: "&") {
+  #{$prefix}#{$E + $e} {
+    @content;
+  }
+}
+
+@mixin m($m, $prefix: "&") {
+  #{$prefix}#{$M + $m} {
+    @content;
+  }
+}
+
+@mixin be($b, $e, $prefix: "") {
+  #{$prefix}.#{$NS + $B + $b + $E + $e} {
+    @content;
+  }
+}
+
+@mixin bm($b, $m, $prefix: "") {
+  #{$prefix}.#{$NS + $B + $b + $M + $m} {
+    @content;
+  }
+}
+
+@mixin bem($b, $e, $m, $prefix: "") {
+  #{$prefix}.#{$NS + $B + $b + $E + $e + $M + $m} {
+    @content;
+  }
+}

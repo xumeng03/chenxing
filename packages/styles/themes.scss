@@ -1,0 +1,63 @@
+$themes: (
+  light: (
+    bg-color: #f5f5f5,
+    color: #333333,
+    bg-color-hover: darken(#f5f5f5, 10%),
+    color-hover: darken(#333333, 10%),
+  ),
+  success: (
+    bg-color: #52c41a,
+    color: #ffffff,
+    bg-color-hover: darken(#52c41a, 10%),
+    color-hover: darken(#ffffff, 10%),
+  ),
+  info: (
+    bg-color: #1890ff,
+    color: #ffffff,
+    bg-color-hover: darken(#1890ff, 10%),
+    color-hover: darken(#ffffff, 10%),
+  ),
+  warning: (
+    bg-color: #faad14,
+    color: #333333,
+    bg-color-hover: darken(#faad14, 10%),
+    color-hover: darken(#333333, 10%),
+  ),
+  error: (
+    bg-color: #ff4d4f,
+    color: #ffffff,
+    bg-color-hover: darken(#ff4d4f, 10%),
+    color-hover: darken(#ffffff, 10%),
+  ),
+  dark: (
+    bg-color: #333333,
+    color: #ffffff,
+    bg-color-hover: darken(#333333, 10%),
+    color-hover: darken(#ffffff, 10%),
+  ),
+);
+
+@function generate-hue-variables($themeMap, $theme) {
+  $variables: ();
+  @each $key, $value in $themeMap {
+    // map-merge 函数可以将多个 map 合并为一个新的 map（如果有重复的键名，后面的 map 中的键值对会覆盖前面的）
+    $variables: map-merge(
+      $variables,
+      (
+        "#{$theme}-#{$key}": $value,
+      )
+    );
+  }
+  @return $variables;
+}
+
+$theme-variables: ();
+@each $theme, $themeMap in $themes {
+  $theme-variables: map-merge($theme-variables, generate-hue-variables($themeMap, $theme));
+}
+
+:root {
+  @each $variable, $value in $theme-variables {
+    --#{$variable}: #{$value};
+  }
+}

@@ -1,10 +1,118 @@
-.x-button {
-  position: relative;
-  text-align: center;
-  border-radius: 5px;
-  transition: all 0.15s;
-  font-size: 12px;
-  padding: 0.5rem 0.75rem;
-  margin: 0.125rem 0.25rem;
-  background-color: #f5f5f5;
+@import "../../index";
+@import "../../../utils/bem/mixin";
+@import "../../../styles/themes";
+
+@at-root {
+  // 尺寸
+  $sizes: (
+    small: (
+      padding: 0.5em 0.6em,
+      font-size: 12px,
+    ),
+    moderate: (
+      padding: 0.7em 1em,
+      font-size: 12px,
+    ),
+    large: (
+      padding: 0.6em 0.8em,
+      font-size: 14px,
+    ),
+  );
+  // 外观
+  $appearances: "normal", "circle", "fluid";
+  // 状态
+  $statuses: "stateless", "loading", "disable";
+
+  $name: "button";
+  @include b($name) {
+    position: relative;
+    text-align: center;
+    line-height: var(--line-height);
+    border-radius: 5px;
+    transition: all 0.15s;
+    display: inline-block;
+
+    // 风格
+    @each $theme, $themeItem in $themes {
+      @include bm($name, $theme, "&") {
+        background-color: var(--#{$theme}-bg-color);
+        color: var(--#{$theme}-color);
+
+        &:hover,
+        &:focus {
+          background-color: var(--#{$theme}-bg-color-hover);
+          color: var(--#{$theme}-color-hover);
+        }
+
+        // 不同状态按钮hover控制
+        @include bm($name, "loading", "&") {
+          &:hover,
+          &:focus {
+            background-color: var(--#{$theme}-bg-color);
+            color: var(--#{$theme}-color);
+          }
+        }
+
+        @include bm($name, "disable", "&") {
+          &:hover,
+          &:focus {
+            background-color: var(--#{$theme}-bg-color);
+            color: var(--#{$theme}-color);
+          }
+        }
+      }
+    }
+
+    // 尺寸
+    @each $size, $padding in $sizes {
+      @include m($size) {
+        padding: map-get($padding, padding);
+        font-size: map-get($padding, font-size);
+      }
+    }
+
+    // 外观
+    @each $appearance in $appearances {
+      @include m($appearance) {
+        @if $appearance== "circle" {
+          border-radius: 50% !important;
+          padding: 0.7em;
+          height: 2.6em;
+          width: 2.6em;
+
+          i {
+            padding: 0;
+            //transform: translateX(-25%);
+          }
+        } @else if $appearance== "fluid" {
+          display: block;
+          width: 100%;
+
+          // button间隔
+          @include bm($name, "fluid", "+ ") {
+            margin-left: unset !important;
+            margin-top: 0.5em;
+          }
+        }
+      }
+    }
+
+    // 状态
+    @each $status in $statuses {
+      @include m($status) {
+        @if $status== "disable" {
+          opacity: 0.3;
+          cursor: not-allowed;
+        } @else if $status== "loading" {
+          opacity: 0.45;
+          cursor: wait;
+        }
+      }
+    }
+
+    // button间隔
+    @include b($name, "+ ") {
+      margin-left: 0.5em;
+    }
+  }
 }

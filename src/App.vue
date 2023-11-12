@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
+// import HelloWorld from "./components/HelloWorld.vue";
 </script>
 
 <template>
@@ -11,8 +11,16 @@ import HelloWorld from "./components/HelloWorld.vue";
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
-  <x-button theme="info"></x-button>
+  <h1>Vite + Vue</h1>
+  <!--<HelloWorld msg="Vite + Vue" />-->
+  <div>
+    <x-button theme="light"></x-button>
+    <x-button theme="success"></x-button>
+    <x-button theme="info"></x-button>
+    <x-button theme="warning"></x-button>
+    <x-button theme="error"></x-button>
+    <x-button theme="dark"></x-button>
+  </div>
 </template>
 
 <style scoped>
