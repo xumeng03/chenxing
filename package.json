@@ -22,10 +22,14 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "eslint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx",
-    "prettier": "prettier --write ./**/*.{vue,ts,tsx,js,jsx,cjs,css,less,scss,html,json,md}"
+    "prettier": "prettier --write ./**/*.{vue,ts,tsx,js,jsx,cjs,css,less,scss,html,json,md}",
+    "docs:dev": "vitepress dev docs --port 5273",
+    "docs:build": "vitepress build docs --port 5273",
+    "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
     "@types/node": "^20.9.0",
+    "vitepress": "^1.0.0-rc.25",
     "vue": "^3.3.4"
   },
   "devDependencies": {

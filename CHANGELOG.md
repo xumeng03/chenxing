@@ -18,6 +18,7 @@ npm install -D sass
 npm install -D @vitejs/plugin-vue-jsx
 npm install -D eslint vite-plugin-eslint
 npm install -D prettier eslint-config-prettier eslint-plugin-prettier
+npm install vitepress
 ```
 
 ### 2、语法规范
@@ -37,3 +38,13 @@ npx eslint --init
 
 - 添加 TSX 支持
 - 基础 button 组件
+
+## 2023-11-12
+
+### 1、Bem规范
+
+### 2、Vitepress
+
+```shell
+npx vitepress init
+```
